@@ -1,0 +1,20 @@
+{% extends 'customer/base.html'%} {% load static %}{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+
+            <form action="" method="POST">
+                {%csrf_token%} {{ formset.management_form }}
+                <!-- allows each form to save individually in the loop, rendering the data differently-->
+                {% for form in formset %} {{ form }}
+                <hr> {% endfor %}
+                <input type="submit" name="Submit">
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% end blockcontent%}
